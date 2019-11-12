@@ -8,7 +8,10 @@ ENV PEAR_PACKAGES foo
 
 WORKDIR /tmp
 
-RUN apk --no-cache add \
+RUN	echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+    apk update && \
+	apk upgrade && \
+	apk add --update --no-cache \
         bash \
         ca-certificates \
         curl \
@@ -21,6 +24,7 @@ RUN apk --no-cache add \
         php7-dom \
         php7-exif \
         php7-fileinfo \
+        php7-iconv \
         php7-json \
         php7-mbstring \
         php7-mcrypt \
@@ -47,7 +51,6 @@ RUN apk --no-cache add \
         mariadb-client \
         php7-memcached \
         sqlite-dev \
-        subversion \
         wget \
     && php -r "copy('https://pear.php.net/go-pear.phar', 'go-pear.phar');" \
     && php go-pear.phar \
