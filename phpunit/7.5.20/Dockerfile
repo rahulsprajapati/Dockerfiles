@@ -2,7 +2,7 @@
 FROM alpine:3.8
 LABEL mantainer="Rahul Prajapati <rahul.prajapati@live.in>"
 
-LABEL name="phpunit-7.5.17"
+LABEL name="phpunit-7.5.20"
 
 ENV PEAR_PACKAGES foo
 
