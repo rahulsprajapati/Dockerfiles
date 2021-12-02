@@ -61,6 +61,7 @@ RUN	echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
     && php -r "unlink('composer-setup.php');" \
     && composer require "phpunit/phpunit:7.5.20" --prefer-source --no-interaction \
     && composer require "phpunit/php-invoker" --prefer-source --no-interaction \
+    && composer require --dev yoast/phpunit-polyfills \
     && ln -s /tmp/vendor/bin/phpunit /usr/local/bin/phpunit \
     && sed -i 's/nn and/nn, Rahul Prajapati (Docker) and/g' /tmp/vendor/phpunit/phpunit/src/Runner/Version.php \
     # Enable X-Debug
